@@ -1,0 +1,22 @@
+<html ng-app='geoImplementation'>
+  <head>
+    <title>Geo Demo - ng</title>
+    <link rel='stylesheet/less' type='text/css' href='style.less' media='screen'>
+  </head>
+	<body>
+    <h1>Geo Demo - ng</h1>
+
+    <section ng-controller='geoController' geo-directive ng-cloak></section>
+
+    <script>
+      less = {
+        env: 'development',
+        dumpLineNumbers: 'comments'
+      };
+    </script>
+		<script type='text/javascript' src='bower/less/dist/less-1.7.0.js'></script>
+    <script type='text/javascript' src='bower/angular/angular.js'></script>
+		<script type='text/javascript' src='geoservice.js'></script>
+		<script type='text/javascript' src='geoimplementation.js'></script>
+	</body>
+</html>

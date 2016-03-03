@@ -1,0 +1,26 @@
+<div><label>Track:</label><input type="checkbox" ng-model="track" ng-change="changeTrack()"></div><br />
+
+<div><label>Enable High Accuracy:</label>
+  <input type="checkbox" ng-model="options.enableHighAccuracy" ng-change="changeTrack()"></div>
+
+<div><label>Timeout:</label>
+  <input type="number" ng-model="options.timeout" min="0" required ng-change="changeTrack()"></div>
+
+<div><label>Maximum Age:</label>
+  <input type="number" ng-model="options.maximumAge" min="0" required ng-change="changeTrack()"></div>
+
+<div><input type="button" value="Start Tracking" ng-click="changeTrack()">
+  <input type="button" value="Stop Tracking" ng-click="stopTrack()">
+  <input type="button" value="Clear Responses" ng-click="clearResponses()"></div>
+
+<ul>
+  <li ng-repeat='response in responses' ng-if='response.message'>
+    <h1>Error:{{response.code}}</h1>
+    <span>{{response.message}}</span>
+  </li>
+  <li ng-repeat='response in responses' ng-if='response.timestamp'>
+    <h1>{{response.timestamp | date:'medium'}}</h1>
+    <span ng-repeat='(key,value) in response.coords' class='item'>{{key | coordName}} : {{value | emptyVal}}<span ng-if='!$last'>,</span></span>
+  </li>
+  <!--li ng-repeat='response in responses'>{{response | json}}</li-->
+</ul>
